@@ -4,15 +4,24 @@ name = "midas-spider"
 version = "0.1.0"
 
 [dependencies]
+# 提供异步编程中常用的 Future、Stream 等特征和组合子，用于组合和处理复杂的异步并发任务流
 futures = "*"
+# 项目内部的本地依赖，引入 midas-core 核心模块的代码与逻辑
 midas-core = { path = "../midas-core" }
+# 数据并行化库，用于将顺序迭代器转换为并行迭代器，轻松实现多线程并发处理以提升计算性能
 rayon = "*"
+# 高级 HTTP 客户端库；禁用默认特性（移除对 OpenSSL 的依赖），启用 rustls-tls（纯 Rust 实现的 TLS 协议支持）和 json（支持 JSON 请求体与响应体解析）特性
 reqwest = { version = "*", default-features = false, features = [
   "json",
   "rustls-tls",
 ] }
+# 通用的序列化与反序列化框架，启用 "derive" 特性以支持通过 #[derive(Serialize, Deserialize)] 宏自动实现序列化接口
 serde = { version = "*", features = ["derive"] }
+# 基于 serde 的 JSON 序列化与反序列化库，用于 Rust 数据结构与 JSON 字符串之间的相互转换
 serde_json = "*"
+# Rust 异步运行时库，启用 "full" 特性以提供完整的异步 I/O、网络、时间等功能支持
 tokio = { version = "*", features = ["full"] }
+# 结构化、异步感知的诊断与日志追踪库，用于记录程序运行状态和错误追踪
 tracing = "*"
+# tracing 的订阅者实现，用于收集、格式化和输出 tracing 产生的日志与追踪数据
 tracing-subscriber = "*"

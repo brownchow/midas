@@ -1,5 +1,14 @@
+# Cargo workspace 配置文件
+# 这个文件定义了整个项目的 workspace（工作空间），用于管理多个相关的 crate（包）
 [workspace]
+
+# 指定 workspace 包含的成员 crate（子项目）
+# 这些成员会共享 workspace 的配置（如依赖版本、rust-version 等）
 members = ["midas-core", "midas-http", "midas-spider"]
+
+# 使用 Cargo 新的依赖解析器（推荐）
+# resolver = "2" 是旧版本，"3" 是当前最新的稳定解析器
+# 它能更好地处理依赖冲突和特性（features）统一
 resolver = "3"
 
 [profile.release]

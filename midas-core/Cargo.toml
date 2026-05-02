@@ -1,11 +1,17 @@
 [package]
+# Rust 2024 版本
 edition = "2024"
 name = "midas-core"
 version = "0.1.0"
 
 [dependencies]
+# 日期和时间处理库，用于时间的解析、格式化、计算和时区转换
 chrono = "*"
+# 数据并行化库，用于将顺序迭代器转换为并行迭代器，轻松实现多线程并发处理以提升计算性能
 rayon = "*"
+# 通用的序列化与反序列化框架，启用 "derive" 特性以支持通过 #[derive(Serialize, Deserialize)] 宏自动实现序列化接口
 serde = { version = "*", features = ["derive"] }
+# 基于 serde 的 JSON 序列化与反序列化库，用于 Rust 数据结构与 JSON 字符串之间的相互转换
 serde_json = "*"
+# 结构化、异步感知的诊断与日志追踪库，用于记录程序运行状态、错误追踪和性能分析
 tracing = "*"

@@ -1,5 +1,7 @@
 const DEFAULT_BIND_ADDR: &str = "0.0.0.0:8000";
 
+// tokio::main 宏将异步 main 函数转换为可执行的同步入口点，
+// 自动创建并启动 Tokio 运行时，处理异步执行和错误传播
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     // init tracing
